@@ -1,25 +1,20 @@
 const form = document.querySelector('.login-form');
 
 function handleForm(event) {
-  console.log(event);
   event.preventDefault();
 
-  const { name, password } = event.currentTarget.elements;
+  const { email, password } = event.target.elements;
+
+  if (!email.value || !password.value) return alert('All fields shoul be filled');
 
   const elements = {
-    name: name.value,
+    email: email.value,
     password: password.value
   };
 
-  const data = {};
+  console.log(elements);
 
-  const formData = new FormData(event.currentTarget);
-
-  formData.forEach(({key, value}) => {
-    data[key] = value;
-  });
-
-  console.log(data);
+  form.reset();
 }
 
 form.addEventListener('submit', handleForm);
