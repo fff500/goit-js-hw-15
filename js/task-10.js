@@ -10,12 +10,8 @@ const destroyBtn = document.querySelector('[data-destroy]');
 const numberInput = document.querySelector('input[type="number"]');
 const boxesDiv = document.querySelector('#boxes');
 
-createBtn.addEventListener('click', handleCreateBtnClick);
+createBtn.addEventListener('click', () => createBoxes(Number(numberInput.value)));
 destroyBtn.addEventListener('click', destroyBoxes);
-
-function handleCreateBtnClick() {
-  createBoxes(Number(numberInput.value));
-}
 
 function createBoxes(number) {
   const divs = [];
